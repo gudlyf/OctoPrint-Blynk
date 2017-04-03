@@ -8,7 +8,6 @@ __plugin_name__ = "OctoBlynk"
 __plugin_version__ = "0.1.0"
 __plugin_description__ = "Control and receive info from OctoPi using Blynk."
 __plugin_license__ = "AGPLv3"
-__plugin_implementation__ = OctoBlynkPlugin()
 
 from blynkapi import Blynk
 
