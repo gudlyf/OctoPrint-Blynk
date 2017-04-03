@@ -60,6 +60,8 @@ class OctoBlynkPlugin(octoprint.plugin.SettingsPlugin,
 			self._send_message(payload["origin"], payload["path"], 0)
 		elif event == octoprint.events.Events.PRINT_DONE:
 			self._send_message(payload["origin"], payload["path"], 100)
+                else
+                        self._send_text_message()
 
 	##~~ ProgressPlugin
 
@@ -71,15 +73,14 @@ class OctoBlynkPlugin(octoprint.plugin.SettingsPlugin,
 	##~~ Helpers
 
 	def _send_message(self, storage, path, progress):
-		message = self._settings.get(["message"]).format(progress=progress,
-		                                                 storage=storage,
-		                                                 path=path)
-		
-		##self._printer.commands("M117 {}".format(message))
-		## SEND BLYNK
 		self._settings.get(["auth_token"])
 		percent_done = Blynk(self._settings.get(["auth_token"]), pin = "V3")
                 percent_done.set_val([progress])
+
+	def _send_text_message(self):
+		self._settings.get(["auth_token"])
+		text_box = Blynk(self._settings.get(["auth_token"]), pin = "V4")
+                text_box.set_val("TEXT MESSAGE")
 
 	##~~ Softwareupdate hook
 
