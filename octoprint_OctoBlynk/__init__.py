@@ -5,7 +5,7 @@ import octoprint.plugin
 
 __author__ = "Keith McDuffee <keith@realistek.com>"
 __plugin_name__ = "OctoBlynk"
-__plugin_version__ = "0.1.1"
+__plugin_version__ = "0.1.2"
 __plugin_description__ = "Control and receive info from OctoPi using Blynk."
 __plugin_license__ = "AGPLv3"
 
